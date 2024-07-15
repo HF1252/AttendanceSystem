@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AttenddanceSystem</title>
+    <link rel="stylesheet" href="AttendanceSystem.css">
+</head>
+<body>
+    <div class="container">
+        <h1>勤怠管理システム</h1>
+        
+        <!-- 現在時刻を表示するエリア -->
+        <div id="current-time"></div>
+
+        <!-- 勤怠管理入力フォーム -->
+        <form id="attendance-form">
+            <label for="employee-id">社員ID:</label>
+            <input type="text" id="employee-id" name="employee-id" required><br><br>
+
+            <label for="date">日付:</label>
+            <input type="date" id="date" name="date" required><br><br>
+
+            <label for="work-type">勤務区分:</label>
+            <select id="work-type" name="work-type" required>
+                <option value="出勤">出勤</option>
+                <option value="在宅ワーク">在宅ワーク</option>
+                <option value="公休">公休</option>
+                <option value="早退">早退</option>
+                <option value="遅刻">遅刻</option>
+                <option value="有給休暇">有給休暇</option>
+            </select><br><br>
+
+            <label for="start-time">出勤時刻:</label>
+            <input type="time" id="start-time" name="start-time">
+            <button type="button" id="start-button">打刻</button>
+            <button type="button" id="reset-start-time">リセット</button><br><br>
+
+            <label for="end-time">退勤時刻:</label>
+            <input type="time" id="end-time" name="end-time">
+            <button type="button" id="end-button">打刻</button>
+            <button type="button" id="reset-end-time">リセット</button><br><br>
+
+            <label for="break-time">休憩時間:</label>
+            <select id="break-time" name="break-time">
+                <option value="15">15分</option>
+                <option value="30">30分</option>
+                <option value="45">45分</option>
+                <option value="60">1時間</option>
+                <option value="75">1時間15分</option>
+                <option value="90">1時間30分</option>
+                <option value="105">1時間45分</option>
+                <option value="120">2時間</option>
+            </select><br><br>
+
+            <button type="button" id="register-button">登録</button>
+            <button type="button" id="reset-button">リセット</button>
+        </form>
+
+        <!-- 勤怠履歴の表示エリア -->
+        <div id="attendance-history">
+            <h2>勤怠履歴</h2>
+            <ul id="history-list"></ul>
+        </div>
+
+        <!-- 勤怠統計の表示エリア -->
+        <div id="attendance-stats">
+            <h2>勤怠統計</h2>
+            <p id="stats-output"></p>
+        </div>
+    </div>
+
+    <script src="AttendanceSystem.js"></script>
+</body>
+</html>
